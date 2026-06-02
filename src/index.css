@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark Portfolio Design System - Nitesh Kumar */
+
+@layer base {
+  :root {
+    /* Dark theme as default */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 142 69% 58%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 199 89% 58%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 270 70% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 142 69% 58%;
+
+    --radius: 1rem;
+
+    /* Glass effects */
+    --glass-bg: 0 0% 10% / 0.7;
+    --glass-border: 0 0% 100% / 0.1;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(142 69% 58%), hsl(199 89% 58%));
+    --gradient-glow: radial-gradient(circle, hsl(199 89% 58% / 0.15) 0%, transparent 70%);
+
+    /* Shadows */
+    --shadow-glow-green: 0 4px 15px hsl(142 69% 58% / 0.3);
+    --shadow-glow-blue: 0 4px 15px hsl(199 89% 58% / 0.3);
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 142 69% 58%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 142 69% 58%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 142 69% 58%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 199 89% 58%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 270 70% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 142 69% 58%;
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 142 69% 58%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 142 69% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-card/70 backdrop-blur-xl border border-border/30;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .gradient-text-light {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--muted-foreground)));
+  }
+
+  .btn-gradient {
+    @apply font-semibold rounded-full transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(142 69% 45%));
+    box-shadow: var(--shadow-glow-green);
+  }
+
+  .btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px hsl(142 69% 58% / 0.5);
+  }
+
+  .btn-outline-gradient {
+    @apply font-semibold rounded-full border-2 border-secondary text-secondary transition-all duration-300;
+  }
+
+  .btn-outline-gradient:hover {
+    @apply bg-secondary text-secondary-foreground;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px hsl(199 89% 58% / 0.4);
+  }
+
+  .section-number {
+    @apply text-primary font-mono text-xl md:text-2xl;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-10px);
+    border-color: hsl(var(--primary));
+    box-shadow: 0 20px 40px hsl(142 69% 58% / 0.2), 0 0 0 1px hsl(142 69% 58% / 0.1);
+  }
+
+  .skill-card-hover:hover {
+    transform: translateY(-5px);
+    border-color: hsl(var(--secondary));
+    box-shadow: 0 15px 35px hsl(199 89% 58% / 0.15);
+  }
+
+  .tech-tag {
+    @apply bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium border border-primary/20;
+  }
+
+  .nav-link-underline {
+    @apply relative;
+  }
+
+  .nav-link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .nav-link-underline:hover::after,
+  .nav-link-underline.active::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+}
