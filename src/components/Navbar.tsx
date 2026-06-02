@@ -58,20 +58,10 @@ export const Navbar = () => {
       transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <motion.a
-            href="#"
-            className="text-2xl font-bold gradient-text"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            BPS
-          </motion.a>
-
+        <div className="flex items-center justify-between md:justify-center py-5 md:py-6 relative">
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8">
-            <ul className="flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
+            <ul className="flex items-center gap-10">
               {navLinks.map((link, index) => (
                 <motion.li
                   key={link.href}
@@ -81,7 +71,7 @@ export const Navbar = () => {
                 >
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className={`text-muted-foreground hover:text-foreground font-medium text-sm py-2 nav-link-underline transition-colors ${
+                    className={`text-muted-foreground hover:text-foreground font-semibold text-[15px] md:text-[16px] py-2 nav-link-underline transition-colors ${
                       activeSection === link.href.substring(1) ? "text-foreground active" : ""
                     }`}
                   >
@@ -96,7 +86,7 @@ export const Navbar = () => {
               href="./bhanuspecializedcv.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-all duration-200 flex items-center gap-2 whitespace-nowrap"
+              className="px-7 py-2.5 bg-primary text-primary-foreground rounded-xl text-[15px] font-semibold hover:bg-primary/90 transition-all duration-200 flex items-center gap-2 whitespace-nowrap"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: -20 }}
@@ -110,7 +100,7 @@ export const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-foreground absolute right-4"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.9 }}
           >
