@@ -2,15 +2,14 @@ import { useState, useEffect, useCallback } from "react";
 
 const typingTexts = [
   "Python • C/C++ • JavaScript",
-  "• Power BI • MS Excel • DBMS(SQL)", 
-  "• HTML/CSS • NodeJS • Express JS",
-  "• oops(C++) • Computer Network • Operating System",
-  "• Numpy • Pandas • Scikit - learn • Neural Network • Deep Learning",
+  "• HTML/CSS • NodeJS • Express JS • DBMS(SQL)",
+  "• Docker • AWS • Azure • Kubernetes",
+  "• VMware • Ubuntu • GitHub",
+  "• OOPS(C++) • Computer Network • Operating System",
   "Creating Interactive Websites",
   "Creating Interactive Analytics Dashboards",
-  "Creating Complex Models",
-  "• Problem-solving • Critical Thinking", 
-  "• Teamwork • Time Management • Strategic Learner",
+  "• Problem-Solving • Critical Thinking",
+  "• Creativity • Consistency • Adaptability",
 ];
 
 export const useTypingEffect = (typeSpeed = 100, deleteSpeed = 80, pauseDuration = 800) => {

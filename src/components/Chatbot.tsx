@@ -7,44 +7,43 @@ type ChatMessage = {
   text: string;
 };
 
-const SYSTEM_PROMPT = `You are Bhanu Pratap's portfolio assistant. You help visitors learn about Bhanu's background, skills, projects, and experience.
+const SYSTEM_PROMPT = `You are Bhanu Pratap Singh's portfolio assistant. You help visitors learn about Bhanu's background, skills, projects, and experience.
 
 About Bhanu:
-- Student at vidya vahini school,prayagraj (CGPA: 6.2)
-- Specializes in Data Science, AI, and Full-Stack Development
-- Builds end-to-end solutions from data preprocessing to ML deployment
-- Technologies: Python, Flask, React, Node.js, SQL/NoSQL, Power BI, ML/AI
-- Tools: Linux (Ubuntu, Kali), VMware, Git/GitHub
-- Soft skills: Teamwork, Time Management, Problem Solving, Communication
+- Student at Lovely Professional University, Punjab (CGPA: 6.2, Present)
+- Specializes in Cloud Computing, AI, and Full-Stack Development
+- Focuses on end-to-end systems—from data preprocessing to deployment.
+- Technologies: Python, C, C++, Java, JavaScript, SQL, HTML, CSS, React, NodeJS, ExpressJS, SpringBoot, MongoDB
+- Tools & Platforms: Docker, AWS, Azure, Kubernetes, VMware, Ubuntu, GitHub
+- Soft skills: Creativity, Consistency, Time Management, Adaptability, Problem Solving
 - GitHub: github.com/bhanupratap30
 - Email: manzansh3008@gmail.com
 
 Education:
-- vidya vahini school,prayagraj (CGPA: 6.2)
+- Lovely Professional University, Punjab: B.Tech Student (CGPA: 6.2, Present)
+- Vidya Vahini School, Prayagraj, UP: Matriculation (Percentage: 60%, 2022-2023)
+- Vidya Vahini School, Prayagraj, UP: Intermediate (Percentage: 85.8%, 2020-2021)
 
 Projects:
-- SiteShield URL Risk Analyzer (ML security pipeline)
-- Nexus URL Shortener (Node.js, MySQL, security features)
-- Git Workflow Assistant (VS Code extension)
-- Smart Parking Prediction (ML regression model)
-- Weather Forecast App (React + APIs)
+- Your Sarthi: A Stress Management System (2026) - AI Chatbot platform built using React, NodeJs, and Google Gemini API, providing stress management resources.
+- Smart Spend AI (2026) - AI-powered personal finance tracker built using React, SpringBoot, Docker, Maven, Framer Motion, JWT, Redux Toolkit, and MongoDB.
+- Cloud Wise Chatbot (2024) - Weather forecasting assistant built using Node.js, Express.js, React, Python, and OpenWeatherMap API.
 
 Certifications:
-- Algo University: Graphs Camp
-- IIT Kanpur: Cloud Computing
-- IIT Kharagpur: Modern C++
-- PW Skills: Backend Development
-- LPU: Data Structures & Algorithms
+- Oracle Cloud Infrastructure Fundamentals
+- Industrial Internet Of Things (IIT Kharagpur)
+- Bytes in Networking (Google)
+- Data Structures and Algorithms Certification (CSE Pathshala)
 
 Training/Experience:
-- Full Stack MERN Training (CipherSchools)
-- Field Data Collection Volunteer (NGO)
+- C++ with DSA Training at CSE PATHSHALA (May 2025 – Jul 2025)
+- Field Data Collection Volunteer at CFCA NGO (May 2024 – Jul 2024) - Supported UP Government Tap Water Scheme, Prayagraj.
 
 Achievements:
-- Inter-School Chess Winner
-- 200+ DSA problems solved
-- 100+ SQL problems solved
-- 288+ hours coding practice
+- Inter-School Volleyball Competition Winner (represented Vidya Vahini School, Prayagraj)
+- Solved 100+ DSA Problems on LeetCode, GeeksforGeeks, and Upwork (using C++)
+- Solved 50+ SQL Problems on LeetCode
+- Freelance Video Editor at The Social Smiths Media Agency
 
 Be helpful, professional, and engaging. Keep responses concise but informative. If asked about contact, encourage using the portfolio contact form.`;
 
@@ -59,48 +58,48 @@ const suggestionPrompts = [
 /** Local answers when API is unavailable or fails — order matters (first match wins). */
 const LOCAL_FAQ: { keywords: string[]; answer: string }[] = [
   {
-    keywords: ["project", "site", "nexus", "siteshield", "parking", "weather", "workflow"],
+    keywords: ["project", "sarthi", "spend", "cloud", "wise", "stress", "finance"],
     answer:
-      "Bhanu Pratap Singh has built projects including SiteShield URL Risk Analyzer (ML security), Nexus URL Shortener (Node.js, MySQL), Git Workflow Assistant (VS Code extension), Smart Parking Prediction (ML), and a Weather Forecast App (React + APIs). See the Projects section for more detail.",
+      "Bhanu Pratap Singh has built key projects including: 1) 'Your Sarthi: A Stress Management System' (React, Gemini API, AI chatbot), 2) 'Smart Spend AI' (React, SpringBoot, Docker, MongoDB personal finance tracker), and 3) 'Cloud Wise Chatbot' (Node.js, Express, OpenWeatherMap weather chatbot). See the Projects section for details!",
   },
   {
-    keywords: ["skill", "technolog", "stack", "python", "react", "flask", "node"],
+    keywords: ["skill", "technolog", "stack", "python", "react", "docker", "kubernetes", "aws", "azure", "cpp", "java", "sql"],
     answer:
-      "He focuses on Data Science, AI, and Full-Stack development. Tech: Python, Flask, React, Node.js, SQL/NoSQL, Power BI, ML/AI; tools: Linux (Ubuntu, Kali), VMware, Git/GitHub.",
+      "His technical arsenal includes: Languages (Python, C, C++, Java, JavaScript, SQL); Web (HTML, CSS, React, NodeJS, ExpressJS); Tools & Cloud (Docker, AWS, Azure, Kubernetes, VMware, Ubuntu, GitHub); Soft Skills (Creativity, Consistency, Time Management, Adaptability, Problem Solving).",
   },
   {
-    keywords: ["education", "cgpa", "lpu", "degree", "school", "intermediate", "matric"],
+    keywords: ["education", "cgpa", "lpu", "degree", "school", "intermediate", "matric", "prayagraj"],
     answer:
-      "Student at vidya vahini school,prayagraj (CGPA 6.2).",
+      "Bhanu is currently a student at Lovely Professional University, Punjab (CGPA 6.2, Present). He completed his Intermediate (85.8% marks, 2020-2021) and Matriculation (60% marks, 2022-2023) at Vidya Vahini School, Prayagraj, Uttar Pradesh.",
   },
   {
-    keywords: ["certif", "iit", "algo", "pw skills"],
+    keywords: ["certif", "oracle", "iit", "google", "networking", "iot"],
     answer:
-      "Certifications include Algo University (Graphs Camp), IIT Kanpur (Cloud Computing), IIT Kharagpur (Modern C++), PW Skills (Backend Development), and LPU (DSA).",
+      "His key certifications are: 1) Oracle Cloud Infrastructure Fundamentals, 2) Industrial Internet Of Things (IIT Kharagpur), 3) Bytes in Networking (Google), and 4) Data Structures and Algorithms (CSE Pathshala).",
   },
   {
-    keywords: ["achiev", "chess", "dsa problem", "sql problem", "coding hour"],
+    keywords: ["achiev", "volleyball", "dsa problem", "sql problem", "video", "editor"],
     answer:
-      "Achievements include inter-school chess winner, 400+ DSA problems, 100+ SQL problems, and 288+ hours of coding practice.",
+      "His main achievements are: 1) Winner of the Inter-School Volleyball Competition representing Vidya Vahini School, 2) Solved 100+ DSA Problems on LeetCode/GFG/Upwork, 3) Solved 50+ SQL Challenges on LeetCode, and 4) Freelancing as a Video Editor at The Social Smiths Media Agency.",
   },
   {
-    keywords: ["experience", "training", "cipher", "mern", "ngo", "volunteer"],
+    keywords: ["experience", "training", "pathshala", "volunteer", "ngo", "cfca"],
     answer:
-      "Training: Full Stack MERN at CipherSchools. Experience: Field Data Collection Volunteer (NGO). Strong problem-solving practice (400+ DSA, 100+ SQL).",
+      "Bhanu completed 'C++ with DSA' training at CSE PATHSHALA (May - July 2025) covering OOP, DSA, DBMS, and OS. He was also a Field Data Collection Volunteer for CFCA (NGO, May - July 2024), where he surveyed villages in Prayagraj for the UP Government Tap Water Scheme.",
   },
   {
     keywords: ["contact", "email", "reach", "message", "hire"],
     answer:
-      "You can reach him via manzansh3008@gmail.com or use the Contact section on this portfolio.",
+      "You can contact Bhanu via email at manzansh3008@gmail.com, or directly use the sleek Contact form at the bottom of the portfolio webpage.",
   },
   {
     keywords: ["github", "git ", "repo"],
-    answer: "Code and projects: github.com/bhanupratap30",
+    answer: "You can explore his active projects and repositories on GitHub at: github.com/bhanupratap30",
   },
   {
     keywords: ["who", "about", "introduce", "background", "yourself"],
     answer:
-      "Bhanu Pratap Singh is a student at vidya vahini school,prayagraj (CGPA 6.2), focused on Data Science, AI, and full-stack work—from data prep to ML deployment.",
+      "Bhanu Pratap Singh is an LPU B.Tech student focused on Cloud Computing, AI, and Full-Stack Web Development, building end-to-end data-driven systems from scratch.",
   },
 ];
 
