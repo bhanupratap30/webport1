@@ -2,9 +2,9 @@ import { useState, useEffect, useCallback } from "react";
 
 const typingTexts = [
   "Python • C/C++ • JavaScript",
-  "• HTML/CSS • NodeJS • Express JS • DBMS(SQL)",
+  "• HTML/CSS • DBMS(SQL) • MONGODB",
   "• Docker • AWS • Azure • Kubernetes",
-  "• VMware • Ubuntu • GitHub",
+  "• VMware • Ubuntu • GitHub, • Linux",
   "• OOPS(C++) • Computer Network • Operating System",
   "Creating Interactive Websites",
   "Creating Interactive Analytics Dashboards",
