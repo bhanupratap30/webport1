@@ -6,7 +6,7 @@ const educationItems = [
   {
     institute: "Lovely Professional University,Punjab",
     degree: "Student",
-    detail: "CGPA: 6.2",
+    detail: "CGPA: 6.40",
     duration: "Present",
     icon: GraduationCap,
     logo: '/lpu.png',
